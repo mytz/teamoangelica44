@@ -1,6 +1,11 @@
 body {
     background: url(https://i.ibb.co/pdHLJfJ/1fondo.png);
   }
+html, body {
+	margin:0;
+	padding:0;
+	height:100%
+}
   
   img {
     -webkit-user-select: none;
@@ -15,8 +20,12 @@ body {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-top: 90px;
-    padding-left: -1px;
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	margin:auto;
   }
 
   
@@ -35,8 +44,12 @@ body {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-top: 90px;
-    padding-left: -1px;
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	margin:auto;
   }
 
   .cuerpo2 {
@@ -55,8 +68,12 @@ body {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-top: 90px;
-    padding-left: -1px;
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	margin:auto;
   }
 
   .cuerpo3 {
