@@ -1,87 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <style>
+        /* Agregamos estilos para el botón mute */
+        .mute {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            cursor: pointer;
+            display: block;
+            width: 15px; /* Ancho ajustado a 15px */
+            height: 15px; /* Altura ajustada a 15px */
+            padding: 20px; /* Padding de 20px */
+        }
+    </style>
 </head>
 
 <body>
-  <div class="cuerpo">
-    <div class="bot0n">
-      <a class='button1'>
-        <img class='button1'
-          onmouseout='resetImage(this, "1v2c.png")'
-          onmouseover='playSoundAndChangeImage(this, "click5.wav", "1v7.png")'
-          src='1v2c.png'/>
-      </a>
-    </div>
-    <br>
-    <div class="cuerpo2">
-      <div class="bot0n2">
-        <a class='button2'>
-          <img class='button2'
-            onmouseout='resetImage(this, "1qd.png")'
-            onmouseover='playSoundAndChangeImage(this, "click5.wav", "1qc.png")'
-            src='1qd.png'/>
-        </a>
-      </div>
-      <div class="cuerpo3">
-        <div class="bot0n3">
-          <a class='button3' href='https://xat.me/schroederz'>
-            <img class='button3'
-              onmouseout='resetImage(this, "1xd.png")'
-              onmouseover='playSoundAndChangeImage(this, "click5.wav", "1xc.png")'
-              src='1xd.png'/>
-          </a>
+    <div class="cuerpo">
+        <div class="bot0n">
+            <a class='button1'>
+                <img class='button1'
+                    onmouseout='resetImage(this, "1v2c.png")'
+                    onmouseover='playSoundAndChangeImage(this, "click5.wav", "1v7.png")'
+                    src='1v2c.png'/>
+            </a>
         </div>
-      </div>
-    </div>
+        <br>
+        <div class="cuerpo2">
+            <div class="bot0n2">
+                <a class='button2'>
+                    <img class='button2'
+                        onmouseout='resetImage(this, "1qd.png")'
+                        onmouseover='playSoundAndChangeImage(this, "click5.wav", "1qc.png")'
+                        src='1qd.png'/>
+                </a>
+            </div>
+            <div class="cuerpo3">
+                <div class="bot0n3">
+                    <a class='button3' href='https://xat.me/schroederz'>
+                        <img class='button3'
+                            onmouseout='resetImage(this, "1xd.png")'
+                            onmouseover='playSoundAndChangeImage(this, "click5.wav", "1xc.png")'
+                            src='1xd.png'/>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-  <audio id="sonido" preload="auto">
-    <source id="sound1" src="click5.wav" type="audio/wav">
-    Tu navegador no soporta el elemento de audio.
-  </audio>
+        <!-- Añadimos el botón mute1 -->
+        <img src="muted1.png" alt="mute1" class="mute" onclick="ocultarMute()">
 
-  <script>
-    function playSoundAndChangeImage(image, soundFileName, newImageSrc) {
-      var audio = document.getElementById('sonido');
-      var soundSource = document.getElementById('sound1');
+        <audio id="sonido" preload="auto">
+            <source id="sound1" src="click5.wav" type="audio/wav">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
 
-      soundSource.src = soundFileName;
-      audio.load(); // Recargar el audio para que cambie la pista
-      audio.play();
+        <script>
+            function playSoundAndChangeImage(image, soundFileName, newImageSrc) {
+                var audio = document.getElementById('sonido');
+                var soundSource = document.getElementById('sound1');
 
-      image.src = newImageSrc;
-    }
+                soundSource.src = soundFileName;
+                audio.load(); // Recargar el audio para que cambie la pista
+                audio.play();
 
-    function resetImage(image, originalImageSrc) {
-      image.src = originalImageSrc;
-    }
-  </script>
+                image.src = newImageSrc;
+            }
 
+            function resetImage(image, originalImageSrc) {
+                image.src = originalImageSrc;
+            }
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Agregar la imagen muted1.png
-    var mutedImage = document.createElement('img');
-    mutedImage.src = 'muted1.png';
-    mutedImage.style.position = 'fixed';
-    mutedImage.style.bottom = '20px';  // Ajusta la posición inferior
-    mutedImage.style.right = '20px';   // Ajusta la posición derecha
-    mutedImage.style.width = '15px';   // Ajusta el ancho
-    mutedImage.style.height = '15px';  // Ajusta la altura
-    mutedImage.style.zIndex = '9999';  // Ajusta la superposición
-    mutedImage.style.padding = '20px'; // Añade el padding
+            function ocultarMute() {
+                var muteButton = document.querySelector('.mute');
+                muteButton.style.display = 'none';
+                // También puedes añadir lógica para evitar que vuelva a aparecer.
+                document.removeEventListener('click', ocultarMute);
+            }
 
-    // Agregar la imagen al cuerpo del documento
-    document.body.appendChild(mutedImage);
-
-    // Función para ocultar la imagen al hacer clic en cualquier parte de la pantalla
-    document.addEventListener('click', function () {
-      mutedImage.style.display = 'none';
-    });
-  });
-</script>
-
+            // Añadimos un evento para ocultar el mute1 al hacer clic en cualquier parte de la pantalla
+            document.addEventListener('click', ocultarMute);
+        </script>
 </body>
 </html>
