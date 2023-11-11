@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +23,7 @@
             <div class="bot0n2">
                 <a class='button2'>
                     <img class='button2'
-                        onmouseover="playSoundAndChangeImage(event, 'click6.wav', 'https://github.com/mytz/teamoangelica44/assets/98504002/53daa83f-c08f-4e4a-bbb2-66d993b0d844')"
+                        onmouseover="playSoundAndChangeImage(event, 'click5.wav', 'https://github.com/mytz/teamoangelica44/assets/98504002/53daa83f-c08f-4e4a-bbb2-66d993b0d844')"
                         onmouseout="resetImage(event, 'https://github.com/mytz/teamoangelica44/assets/98504002/f54a9aee-4ed3-464f-8366-22d62f9cd7d3')"
                         src='https://github.com/mytz/teamoangelica44/assets/98504002/f54a9aee-4ed3-464f-8366-22d62f9cd7d3' />
                 </a>
@@ -29,7 +32,7 @@
                 <div class="bot0n3">
                     <a class='button3' href='https://xat.me/schroederz'>
                         <img class='button3'
-                            onmouseover="playSoundAndChangeImage(event, 'click7.wav', 'https://github.com/mytz/teamoangelica44/assets/98504002/942bfa7b-172c-408a-bde2-7b27de6143be')"
+                            onmouseover="playSoundAndChangeImage(event, 'click5.wav', 'https://github.com/mytz/teamoangelica44/assets/98504002/942bfa7b-172c-408a-bde2-7b27de6143be')"
                             onmouseout="resetImage(event, 'https://github.com/mytz/teamoangelica44/assets/98504002/36fe5381-e83c-4098-8ae0-53aa3b0458c5')"
                             src='https://github.com/mytz/teamoangelica44/assets/98504002/36fe5381-e83c-4098-8ae0-53aa3b0458c5' />
                     </a>
@@ -39,31 +42,14 @@
     </div>
 
     <audio id="sonido" preload="auto">
-        <source id="sound1" src="click5.wav" type="audio/wav">
-        <source id="sound2" src="click6.wav" type="audio/wav">
-        <source id="sound3" src="click7.wav" type="audio/wav">
+        <source id="sound" src="click5.wav" type="audio/wav">
         Tu navegador no soporta el elemento de audio.
     </audio>
 
     <script>
-        function playSoundAndChangeImage(event, soundFileName, newImageSrc, originalImageSrc) {
+        function playSoundAndChangeImage(event, soundFileName, newImageSrc) {
             var audio = document.getElementById('sonido');
-            var soundSource = document.getElementById('sound1');
-
-            switch (soundFileName) {
-                case 'click5.wav':
-                    soundSource.src = 'click5.wav';
-                    break;
-                case 'click6.wav':
-                    soundSource.src = 'click6.wav';
-                    break;
-                case 'click7.wav':
-                    soundSource.src = 'click7.wav';
-                    break;
-                default:
-                    break;
-            }
-
+            audio.src = soundFileName;
             audio.load(); // Recargar el audio para que cambie la pista
             audio.play();
 
@@ -71,3 +57,13 @@
             image.src = newImageSrc;
 
             // Eliminé el setTimeout
+        }
+
+        function resetImage(event, originalImageSrc) {
+            var image = event.target;
+            image.src = originalImageSrc;
+        }
+    </script>
+</body>
+
+</html>
