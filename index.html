@@ -5,15 +5,58 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
 <div class="cuerpo">
-    <div class="bot0n">
-      <a class='button1'><img class='button1' onmouseout='this.src=&apos;https://github.com/mytz/teamoangelica44/assets/98504002/4e880684-b6fb-4700-a353-7f017e9b357d&apos;' onmouseover='this.src=&apos;https://github.com/mytz/teamoangelica44/assets/98504002/0a0709ab-74f0-4a9d-a578-42ce54536c85&apos;' src='https://github.com/mytz/teamoangelica44/assets/98504002/4e880684-b6fb-4700-a353-7f017e9b357d'/></a>
-    </div>
-    <br>
-<div class="cuerpo2">
+  <div class="bot0n">
+    <a class='button1'>
+      <img class='button1'
+        onmouseover="playSoundAndChangeImage('click1.wav', 'https://github.com/mytz/teamoangelica44/assets/98504002/0a0709ab-74f0-4a9d-a578-42ce54536c85', 'https://github.com/mytz/teamoangelica44/assets/98504002/4e880684-b6fb-4700-a353-7f017e9b357d')"
+        onmouseout="resetImage('https://github.com/mytz/teamoangelica44/assets/98504002/4e880684-b6fb-4700-a353-7f017e9b357d')"
+        src='https://github.com/mytz/teamoangelica44/assets/98504002/4e880684-b6fb-4700-a353-7f017e9b357d'/>
+    </a>
+  </div>
+  <br>
+  <div class="cuerpo2">
     <div class="bot0n2">
-      <a class='button2'><img class='button2' onmouseout='this.src=&apos;https://github.com/mytz/teamoangelica44/assets/98504002/f54a9aee-4ed3-464f-8366-22d62f9cd7d3&apos;' onmouseover='this.src=&apos;https://github.com/mytz/teamoangelica44/assets/98504002/53daa83f-c08f-4e4a-bbb2-66d993b0d844&apos;' src='https://github.com/mytz/teamoangelica44/assets/98504002/f54a9aee-4ed3-464f-8366-22d62f9cd7d3'/></a>
+      <a class='button2'>
+        <img class='button2'
+          onmouseover="playSoundAndChangeImage('click2.wav', 'https://github.com/mytz/teamoangelica44/assets/98504002/53daa83f-c08f-4e4a-bbb2-66d993b0d844', 'https://github.com/mytz/teamoangelica44/assets/98504002/f54a9aee-4ed3-464f-8366-22d62f9cd7d3')"
+          onmouseout="resetImage('https://github.com/mytz/teamoangelica44/assets/98504002/f54a9aee-4ed3-464f-8366-22d62f9cd7d3')"
+          src='https://github.com/mytz/teamoangelica44/assets/98504002/f54a9aee-4ed3-464f-8366-22d62f9cd7d3'/>
+      </a>
     </div>
-<div class="cuerpo3">
-    <div class="bot0n3">
-      <a class='button3' href='https://xat.me/schroederz'><img class='button3' onmouseout='this.src=&apos;https://github.com/mytz/teamoangelica44/assets/98504002/36fe5381-e83c-4098-8ae0-53aa3b0458c5&apos;' onmouseover='this.src=&apos;https://github.com/mytz/teamoangelica44/assets/98504002/942bfa7b-172c-408a-bde2-7b27de6143be&apos;' src='https://github.com/mytz/teamoangelica44/assets/98504002/36fe5381-e83c-4098-8ae0-53aa3b0458c5'/></a>
+    <div class="cuerpo3">
+      <div class="bot0n3">
+        <a class='button3' href='https://xat.me/schroederz'>
+          <img class='button3'
+            onmouseover="playSoundAndChangeImage('click3.wav', 'https://github.com/mytz/teamoangelica44/assets/98504002/942bfa7b-172c-408a-bde2-7b27de6143be', 'https://github.com/mytz/teamoangelica44/assets/98504002/36fe5381-e83c-4098-8ae0-53aa3b0458c5')"
+            onmouseout="resetImage('https://github.com/mytz/teamoangelica44/assets/98504002/36fe5381-e83c-4098-8ae0-53aa3b0458c5')"
+            src='https://github.com/mytz/teamoangelica44/assets/98504002/36fe5381-e83c-4098-8ae0-53aa3b0458c5'/>
+        </a>
+      </div>
     </div>
+  </div>
+</div>
+
+<audio id="sonido" preload="auto">
+  <source src="click1.wav" type="audio/wav">
+  Tu navegador no soporta el elemento de audio.
+</audio>
+
+<script>
+  function playSoundAndChangeImage(soundFileName, newImageSrc, originalImageSrc) {
+    var audio = document.getElementById('sonido');
+    audio.src = soundFileName;
+    audio.play();
+
+    var image = event.target;
+    image.src = newImageSrc;
+
+    // Para restablecer la imagen después de un tiempo
+    setTimeout(function() {
+      resetImage(image, originalImageSrc);
+    }, 1000); // Ajusta el tiempo según tus necesidades
+  }
+
+  function resetImage(image, originalImageSrc) {
+    image.src = originalImageSrc;
+  }
+</script>
