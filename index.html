@@ -37,23 +37,39 @@
 </div>
 
 <audio id="sonido" preload="auto">
-  <source src="click1.wav" type="audio/wav">
+  <source id="sound1" src="click1.wav" type="audio/wav">
+  <source id="sound2" src="click2.wav" type="audio/wav">
+  <source id="sound3" src="click3.wav" type="audio/wav">
   Tu navegador no soporta el elemento de audio.
 </audio>
 
 <script>
   function playSoundAndChangeImage(soundFileName, newImageSrc, originalImageSrc) {
     var audio = document.getElementById('sonido');
-    audio.src = soundFileName;
+    var soundSource = document.getElementById('sound1');
+
+    switch (soundFileName) {
+      case 'click1.wav':
+        soundSource.src = 'click1.wav';
+        break;
+      case 'click2.wav':
+        soundSource.src = 'click2.wav';
+        break;
+      case 'click3.wav':
+        soundSource.src = 'click3.wav';
+        break;
+      default:
+        break;
+    }
+
+    audio.load(); // Recargar el audio para que cambie la pista
     audio.play();
 
     var image = event.target;
     image.src = newImageSrc;
 
-    // Para restablecer la imagen después de un tiempo
-    setTimeout(function() {
-      resetImage(image, originalImageSrc);
-    }, 1000); // Ajusta el tiempo según tus necesidades
+    // Eliminé el setTimeout
+    resetImage(image, originalImageSrc);
   }
 
   function resetImage(image, originalImageSrc) {
