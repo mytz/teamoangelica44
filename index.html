@@ -58,5 +58,30 @@
       image.src = originalImageSrc;
     }
   </script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Agregar la imagen muted1.png
+    var mutedImage = document.createElement('img');
+    mutedImage.src = 'muted1.png';
+    mutedImage.style.position = 'fixed';
+    mutedImage.style.bottom = '20px';  // Ajusta la posición inferior
+    mutedImage.style.right = '20px';   // Ajusta la posición derecha
+    mutedImage.style.width = '10px';   // Ajusta el ancho
+    mutedImage.style.height = '10px';  // Ajusta la altura
+    mutedImage.style.zIndex = '9999';  // Ajusta la superposición
+    mutedImage.style.padding = '20px'; // Añade el padding
+
+    // Agregar la imagen al cuerpo del documento
+    document.body.appendChild(mutedImage);
+
+    // Función para ocultar la imagen al hacer clic en cualquier parte de la pantalla
+    document.addEventListener('click', function () {
+      mutedImage.style.display = 'none';
+    });
+  });
+</script>
+
 </body>
 </html>
