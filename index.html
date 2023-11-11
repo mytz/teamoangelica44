@@ -8,10 +8,9 @@
   <div class="bot0n">
     <a class='button1'>
       <img class='button1'
-        onmouseover="playSoundAndChangeImage('buttonclick.wav', 'https://github.com/mytz/teamoangelica44/assets/98504002/0a0709ab-74f0-4a9d-a578-42ce54536c85')"
-        onmouseout="resetImage('https://github.com/mytz/teamoangelica44/assets/98504002/4e880684-b6fb-4700-a353-7f017e9b357d')"
+        onmouseover="playSoundAndChangeImage('buttonclick.wav', 'https://github.com/mytz/teamoangelica44/assets/98504002/0a0709ab-74f0-4a9d-a578-42ce54536c85', 'button1')"
+        onmouseout="resetImage('https://github.com/mytz/teamoangelica44/assets/98504002/4e880684-b6fb-4700-a353-7f017e9b357d', 'button1')"
         src='https://github.com/mytz/teamoangelica44/assets/98504002/4e880684-b6fb-4700-a353-7f017e9b357d'/>
-
     </a>
   </div>
   <br>
@@ -19,8 +18,8 @@
     <div class="bot0n2">
       <a class='button2'>
         <img class='button2'
-          onmouseover="playSoundAndChangeImage('buttonclick.wav', 'https://github.com/mytz/teamoangelica44/assets/98504002/53daa83f-c08f-4e4a-bbb2-66d993b0d844')"
-          onmouseout="resetImage('https://github.com/mytz/teamoangelica44/assets/98504002/f54a9aee-4ed3-464f-8366-22d62f9cd7d3')"
+          onmouseover="playSoundAndChangeImage('buttonclick.wav', 'https://github.com/mytz/teamoangelica44/assets/98504002/53daa83f-c08f-4e4a-bbb2-66d993b0d844', 'button2')"
+          onmouseout="resetImage('https://github.com/mytz/teamoangelica44/assets/98504002/f54a9aee-4ed3-464f-8366-22d62f9cd7d3', 'button2')"
           src='https://github.com/mytz/teamoangelica44/assets/98504002/f54a9aee-4ed3-464f-8366-22d62f9cd7d3'/>
       </a>
     </div>
@@ -28,8 +27,8 @@
       <div class="bot0n3">
         <a class='button3' href='https://xat.me/schroederz'>
           <img class='button3'
-            onmouseover="playSoundAndChangeImage('buttonclick.wav', 'https://github.com/mytz/teamoangelica44/assets/98504002/942bfa7b-172c-408a-bde2-7b27de6143be')"
-            onmouseout="resetImage('https://github.com/mytz/teamoangelica44/assets/98504002/36fe5381-e83c-4098-8ae0-53aa3b0458c5')"
+            onmouseover="playSoundAndChangeImage('buttonclick.wav', 'https://github.com/mytz/teamoangelica44/assets/98504002/942bfa7b-172c-408a-bde2-7b27de6143be', 'button3')"
+            onmouseout="resetImage('https://github.com/mytz/teamoangelica44/assets/98504002/36fe5381-e83c-4098-8ae0-53aa3b0458c5', 'button3')"
             src='https://github.com/mytz/teamoangelica44/assets/98504002/36fe5381-e83c-4098-8ae0-53aa3b0458c5'/>
         </a>
       </div>
@@ -43,16 +42,16 @@
 </audio>
 
 <script>
-  function playSoundAndChangeImage(soundFileName, newImageSrc, originalImageSrc) {
+  function playSoundAndChangeImage(soundFileName, newImageSrc, buttonId) {
     var audio = document.getElementById('sonido');
     audio.play();
 
-    var image = event.target;
+    var image = document.getElementById(buttonId);
     image.src = newImageSrc;
-    resetImage(image, originalImageSrc);
   }
 
-  function resetImage(image, originalImageSrc) {
+  function resetImage(originalImageSrc, buttonId) {
+    var image = document.getElementById(buttonId);
     image.src = originalImageSrc;
   }
 </script>
